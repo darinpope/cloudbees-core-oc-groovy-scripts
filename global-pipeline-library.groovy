@@ -2,8 +2,6 @@ import jenkins.model.*;
 import org.jenkinsci.plugins.workflow.libs.*;
 import jenkins.scm.api.SCMSource;
 
-GlobalLibraries globalLibs = GlobalConfiguration.all().get(GlobalLibraries.class)
-
 SCMSource scm = new jenkins.plugins.git.GitSCMSource("<git repository url; ssh or https")
 scm.setCredentialsId("<real credential id for the above git url>")
 
@@ -16,4 +14,6 @@ libConfig.setIncludeInChangesets(true)
 
 List<LibraryConfiguration> libraries= new ArrayList<LibraryConfiguration>()
 libraries.add(libConfig)
+
+GlobalLibraries globalLibs = GlobalConfiguration.all().get(GlobalLibraries.class)
 globalLibs.setLibraries(libraries)
