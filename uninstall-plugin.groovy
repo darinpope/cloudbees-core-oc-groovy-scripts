@@ -6,7 +6,9 @@ import hudson.model.*;
 def pluginManager = Jenkins.instance.getPluginManager();
 def pluginWrapperToUninstall = pluginManager.getPlugin("${PLUGIN_TO_REMOVE}");
 if(pluginWrapperToUninstall != null) {
-  pluginWrapperToUninstall.doDoUninstall();
+  try {
+    pluginWrapperToUninstall.doDoUninstall();
+  } catch(Exception e) {}
   Jenkins.instance.doQuietDown(true,0);
   Jenkins.instance.doSafeRestart(null); 
 }
