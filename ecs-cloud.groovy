@@ -25,7 +25,7 @@ def taskTemplate = new ECSTaskTemplate(
   launchType="EC2",
   networkMode="foo",
   remoteFSRoot="/var/jenkins_home",
-  memory=0,
+  memory=128,
   memoryReservation=0,
   cpu=0,
   subnets=null,
@@ -41,7 +41,7 @@ def taskTemplate = new ECSTaskTemplate(
   executionRole=null,
   taskrole=null,
   inheritFrom=null,
-  sharedMemorySize=64
+  sharedMemorySize=0
 )
 
 def ecsCloud = new ECSCloud(
