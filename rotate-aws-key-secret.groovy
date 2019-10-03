@@ -40,5 +40,11 @@ def changeKeyAndSecret = { id, newAccessKey, newSecretKey ->
 
 changeKeyAndSecret(args[0], args[1], args[2])
 
+// pre 2.165
+// oc-cli groovy rotate-aws-key-secret.groovy aws-credential-id aeg221 efwef93 
+
+// post 2.165
 // oc-cli groovy = aws-credential-id aeg221 efwef93 < rotate-aws-key-secret.groovy
+
+// function 
 // oc-cli ===> java -jar <path to downloaded>/jenkins-cli.jar -http -noKeyAuth -auth <user>:<token> -s http://oc:8888/ $*
