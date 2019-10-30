@@ -6,12 +6,12 @@ def instance = Jenkins.getInstance()
 def config = instance.getDescriptor("io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers")
 
 GitLabServer endpoint = new GitLabServer(
-  name="myDisplayName",
   serverUrl="https://foo.com/",
+  name="myDisplayName",
   credentialsId="bb-creds"
 )
-server.setManageWebHooks(true)
-server.setManageSystemHooks(true)
+endpoint.setManageWebHooks(true)
+endpoint.setManageSystemHooks(true)
 
 config.setServers(Arrays.<GitLabServer>asList(endpoint))
 instance.save()
