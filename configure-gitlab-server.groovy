@@ -9,20 +9,20 @@ import io.jenkins.plugins.gitlabserverconfig.credentials.PersonalAccessToken;
 def instance = Jenkins.getInstance()
 def config = instance.getDescriptor("io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers")
 
-GitLabServer endpoint = new GitLabServer(
+GitLabServer server = new GitLabServer(
   serverUrl="https://gitlab.mycompany.com/",
   name="GitLab",
   credentialsId="my-gitlab-access-token"
 )
-endpoint.setManageWebHooks(true)
-endpoint.setManageSystemHooks(true)
+server.setManageWebHooks(true)
+server.setManageSystemHooks(true)
 
-config.setServers(Arrays.<GitLabServer>asList(endpoint))
+config.setServers(Arrays.<GitLabServer>asList(server))
 
-PersonalAccessToken credentials = endpoint.getCredentials();
+PersonalAccessToken credentials = server.getCredentials();
 if (credentials != null) {
   String privateToken = credentials.getToken().getPlainText();
-  GitLabApi gitLabApi = new GitLabApi(endpoint.serverUrl, privateToken);
+  GitLabApi gitLabApi = new GitLabApi(server.serverUrl, privateToken);
   User user = gitLabApi.getUserApi().getCurrentUser();
   if (user != null && user.getUsername() != null) {
     println("User found")
