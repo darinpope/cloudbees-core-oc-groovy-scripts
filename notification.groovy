@@ -13,5 +13,6 @@ NotificationConfiguration config = ExtensionList.lookupSingleton(NotificationCon
 config.setRouter(r);
 config.setEnabled(true);
 config.save();
+config.onLoaded();
 
 instance.save();
