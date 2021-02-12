@@ -5,14 +5,17 @@ import com.cloudbees.jenkins.plugins.notification.api.NotificationConfiguration
 import com.cloudbees.jenkins.plugins.notification.spi.Router
 import com.cloudbees.opscenter.plugins.notification.OperationsCenterRouter
 
-def instance = Jenkins.getInstance();
+//TODO: Don't use this script. 
+//TODO: use CloudBees CI CasC instead 
 
-Router r = new OperationsCenterRouter();
+// def instance = Jenkins.getInstance();
 
-NotificationConfiguration config = ExtensionList.lookupSingleton(NotificationConfiguration.class);
-config.setRouter(r);
-config.setEnabled(true);
-config.save();
-config.onLoaded();
+//Router r = new OperationsCenterRouter();
 
-instance.save();
+//NotificationConfiguration config = ExtensionList.lookupSingleton(NotificationConfiguration.class);
+//config.setRouter(r);
+//config.setEnabled(true);
+//config.save();
+//config.onLoaded();
+
+//instance.save();
